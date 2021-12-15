@@ -26,7 +26,7 @@ fun Route.getAllHeroes() {
                     success = false,
                     message = "Page number not in range of possible pages. Try 1 through 5."
                 ),
-                status = HttpStatusCode.BadRequest
+                status = HttpStatusCode.NotFound
             )
         }
     }
