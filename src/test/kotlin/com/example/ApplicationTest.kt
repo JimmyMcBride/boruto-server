@@ -14,7 +14,7 @@ import com.example.plugins.*
 
 class ApplicationTest {
     @Test
-    fun testRoot() {
+    fun `access root endpoint, assert correct information`() {
         withTestApplication(moduleFunction = Application::module) {
             handleRequest(HttpMethod.Get, "/").apply {
                 assertEquals(
