@@ -15,10 +15,16 @@ import com.example.plugins.*
 class ApplicationTest {
     @Test
     fun testRoot() {
-        withTestApplication({ configureRouting() }) {
+        withTestApplication(moduleFunction = Application::module) {
             handleRequest(HttpMethod.Get, "/").apply {
-                assertEquals(HttpStatusCode.OK, response.status())
-                assertEquals("Welcome to Boruto API!", response.content)
+                assertEquals(
+                    expected = HttpStatusCode.OK,
+                    actual = response.status()
+                )
+                assertEquals(
+                    expected = "Welcome to Boruto API!",
+                    actual = response.content
+                )
             }
         }
     }
